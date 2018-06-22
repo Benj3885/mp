@@ -22,7 +22,7 @@ plantlist::plantlist()
         {
             cout << "Please enter a plant: ";
             cin >> newPlantName;
-            cout << "Please enter the date which plant has been sowed: ";
+            cout << "Please enter the date which the plant was sown: ";
             cin >> newPlantDate;
             cout << "Search plant: ";
             cin >> plantName;
