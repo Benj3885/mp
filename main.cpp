@@ -65,9 +65,10 @@ int main ()
 		delete [] charArray;
 
 	}
+	
 	return 0;
-
-            break;
+        break;
+	
         }
         else
         {
@@ -77,9 +78,7 @@ int main ()
     }
     if (loginAttempt == 3)
     {
-            cout << "Too many login attempts! The program will now terminate.";
-            return 0;
+    	cout << "Too many login attempts! The program will now terminate.";
+    	return 0;
     }
-
-
 }
