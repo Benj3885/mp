@@ -35,46 +35,46 @@ int main ()
         if (loginName == newName && loginPassword == newPassword)
         {
             cout << "Welcome " << loginName << endl;
-          // waterPlant();
-          // tempLog();
-
-
-
+            // waterPlant();
+            // tempLog();
 
             SerialPort arduino(port);
-	if(arduino.isConnected()){
-		cout << ", Connection to port established" << endl << endl;
-	}
-	else{
-		cout << "Error in port name" << endl << endl;
-	}
-	while(arduino.isConnected()){
-		cout << "Enter your command: "<< endl; // enter read_data to get humidity and temperature data from arduino
-		string data;
-		cin >> data;
+			
+		if(arduino.isConnected())
+		{
+			cout << ", Connection to port established" << endl << endl;
+		}
+		else
+		{
+			cout << "Error in port name" << endl << endl;
+		}
+		while(arduino.isConnected()){
+	    	cout << "Enter your command: "<< endl; // enter read_data to get humidity and temperature data from arduino
+	    	string data;
+	    	cin >> data;
 
-		char *charArray = new char[data.size() + 1];
-		copy(data.begin(), data.end(), charArray);
-		charArray[data.size()] = '\n';
+	    	char *charArray = new char[data.size() + 1];
+	    	copy(data.begin(), data.end(), charArray);
+	    	charArray[data.size()] = '\n';
 
-		arduino.writeSerialPort(charArray, MAX_DATA_LENGTH);
-		arduino.readSerialPort(output, MAX_DATA_LENGTH);
+			arduino.writeSerialPort(charArray, MAX_DATA_LENGTH);
+			arduino.readSerialPort(output, MAX_DATA_LENGTH);
 
-		cout << ">> " << output << endl;
+	    	cout << ">> " << output << endl;
 
-		delete [] charArray;
+	    	delete [] charArray;
 
-	}
+		}
 	
-	return 0;
-        break;
+		return 0;
+    	break;
 	
-        }
-        else
-        {
-            cout << "Invalid login attempt. Please try again.\n" << '\n';
-            loginAttempt++;
-        }
+    	}
+    	else
+    	{
+        	cout << "Invalid login attempt. Please try again.\n" << '\n';
+        	loginAttempt++;
+    	}
     }
     if (loginAttempt == 3)
     {
