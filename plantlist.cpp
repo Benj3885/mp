@@ -11,7 +11,6 @@ plantlist::plantlist()
   cout << " " << endl << "Your Plants.  " ;
 
     {
-
         string newPlantName;
         string newPlantDate;
         string plantName;
@@ -33,7 +32,6 @@ plantlist::plantlist()
 
                 break;
             }
-
             else
             {
                 cout << "Invalid search attempt. Please search for another plant.\n" << '\n';
