@@ -4,13 +4,13 @@ SerialPort::SerialPort(char *portName)
 {
     this->connected = false;
 
-    this->handler = CreateFileA(static_cast<LPCSTR>(portName),
-                                GENERIC_READ | GENERIC_WRITE,
-                                0,
-                                NULL,
-                                OPEN_EXISTING,
-                                FILE_ATTRIBUTE_NORMAL,
-                                NULL);
+    this->handler = CreateFileA(static_cast<LPCSTR>(portName),  // We name the file portName
+                                GENERIC_READ | GENERIC_WRITE,   // We get reading and writing permissions to the file
+                                0,                              // Noone else can interact with file
+                                NULL,                           // No access to the file in child processes
+                                OPEN_EXISTING,                  // Opens the file if it exists
+                                FILE_ATTRIBUTE_NORMAL,          // Doesn't set any special attributes to the file
+                                NULL);                          // Optional. Does nothing
     if (this->handler == INVALID_HANDLE_VALUE){
         if (GetLastError() == ERROR_FILE_NOT_FOUND){
             printf("ERROR: Handle was not attached. Reason: %s not available\n", portName);
