@@ -10,7 +10,7 @@ void setup()
 
 void loop() {
   // prints out the value of the humidity and temperature in the serial monitor
-  delay(dht.getMinimumSamplingPeriod()); // 
+  delay(dht.getMinimumSamplingPeriod()); // 2 seconds
   Serial.print("Humidity: ");
   Serial.print(dht.getHumidity());
   Serial.print("\t");
