@@ -49,20 +49,20 @@ int main ()
 			cout << "Error in port name" << endl << endl;
 		}
 		while(arduino.isConnected()){
-	    		cout << "Enter your command: "<< endl; // enter read_data to get humidity and temperature data from arduino
-	    		string data;
-	    		cin >> data;
+	    	cout << "Enter your command: "<< endl; // enter read_data to get humidity and temperature data from arduino
+	    	string data;
+	    	cin >> data;
 
-	    		char *charArray = new char[data.size() + 1];
-	    		copy(data.begin(), data.end(), charArray);
-	    		charArray[data.size()] = '\n';
+	    	char *charArray = new char[data.size() + 1];
+	    	copy(data.begin(), data.end(), charArray);
+	    	charArray[data.size()] = '\n';
 
 			arduino.writeSerialPort(charArray, MAX_DATA_LENGTH);
 			arduino.readSerialPort(output, MAX_DATA_LENGTH);
 
-	    		cout << ">> " << output << endl;
+	    	cout << ">> " << output << endl;
 
-	    		delete [] charArray;
+	    	delete [] charArray;
 		}
 	
 		return 0;
